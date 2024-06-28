@@ -5,7 +5,7 @@ import random
 
 W_Width, W_Height = 500,500
 
-
+speed = 0
 min_speed = 0.01
 max_speed = 1.0
 speed_increment = 0.01
@@ -42,7 +42,7 @@ def draw_points(x, y, s, a):
     glVertex2f(x, y)  # jekhane show korbe pixel
     glEnd()
 
-
+ogPoints= []
 def mouseListener(button, state, x, y):
     global points, ogPoints
     if button == GLUT_LEFT_BUTTON:
@@ -104,19 +104,8 @@ def animate():
             i.x = (i.x + i.speedx)
             i.y = (i.y + i.speedy)
 
-def specialKeyListener(key, x, y):
-    global speed
-    if key == 'w':
-        print(1)
-    if key == GLUT_KEY_UP:
-        speed *= 2
-        print("Speed Increased")
-    if key == GLUT_KEY_DOWN:
-        speed /= 2
-        print("Speed Decreased")
-    glutPostRedisplay()
 
-ogPoints= []
+
 
 def init():
     # //clear the screen
@@ -130,7 +119,7 @@ def init():
     # **(important)**aspect ratio that determines the field of view in the X direction (horizontally). The bigger this angle is, the more you can see of the world - but at the same time, the objects you can see will become smaller.
     # //near distance
     # //far distance
-def specialKeyListener(key, x, y):
+def specialKeyListener(key,x,y):
     global points
 
     if key==GLUT_KEY_UP:
@@ -145,7 +134,7 @@ def specialKeyListener(key, x, y):
             print("Speed Decreased")
     glutPostRedisplay()
 
-def keyboardListener(key, x, y):
+def keyboardListener(key,x,y):
 
     global frozen
     if key==b' ':
